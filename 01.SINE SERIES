@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+double sine(double x, int terms) {
+    double sum = 0.0;
+    double term = x;
+    for (int n = 0; n < terms; n++) {
+        sum += term;
+        term *= -x * x / ((2 * n + 2) * (2 * n + 3)); 
+	}
+    return sum;
+}
+
+int main() {
+    double x;
+    int terms;
+    printf("Enter the value of x (in radians): ");
+    scanf("%lf", &x);
+    printf("Enter the number of terms in the series: ");
+    scanf("%d", &terms);
+    double result = sine(x, terms);
+    printf("sin(%lf) = %.6lf\n", x, result);
+    return 0;
+}
